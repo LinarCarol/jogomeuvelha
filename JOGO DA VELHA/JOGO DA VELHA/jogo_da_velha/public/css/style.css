@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;900&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #56baed;
+}
+
+/* Tela para Inserir Código da Sala */
+.code-input-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 330px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.code-input-box header {
+    font-size: 23px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.code-input-box .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;    
+}
+
+.code-input-box input[type="text"] {
+    width: 100%; /* Faz com que o input ocupe toda a largura disponível */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.code-input-box button {
+    width: 100%; /* Faz com que todos os botões ocupem a mesma largura */
+    background: #56baed;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.code-input-box button:hover {
+    background: #3fa2d3;
+}
+
+.code-input-box #back-to-welcome {
+    margin-top: 10px; /* Adiciona um espaço acima do botão de voltar */
+}
+
+
+/* Tela de Criação e Entrada de Sala */
+.room-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 330px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.room-box header {
+    font-size: 23px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.room-box .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.room-code{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    gap: 20px;
+}
+
+.room-box #codigo-room{
+    background: #56baed;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+}
+
+#code{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* CSS para esconder o código da sala fora da tela de jogo */
+.hide-room-code {
+    display: none;
+}
+
+/* Estilo para exibir o código da sala apenas na tela do jogo */
+.show-room-code {
+    display: block;
+}
+
+.room-box #enter-room {
+    background: #56baed;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.room-box #enter-room:hover, #codigo-room:hover {
+    background: #3fa2d3;
+}
+
+/* Tela de Seleção de Jogador */
+.select-box, .play-board, .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s ease;
+}
+
+.select-box {
+    background: #fff;
+    padding: 20px 25px 25px;
+    border-radius: 5px;
+    max-width: 330px;
+    width: 100%;
+}
+
+.select-box header {
+    font-size: 23px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.select-box .title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.select-box .option {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    align-items: center; 
+    gap: 10px;
+}
+
+.option button {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    background: #56baed;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option button:last-child {
+    margin-bottom: 0; 
+}
+
+.option button:hover,
+.result-box .btn button:hover {
+    background-color: #3fa2d3;
+}
+
+/* Tela de Jogo */
+.play-board {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%,-50%) scale(0.9);
+}
+
+.play-board.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.play-board .details {
+    background: #fff;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.play-board .details .players {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-around;
+}
+
+.play-board .details span {
+    color: #56baed;
+    width: 100%;
+    border-radius: 5px;
+    padding: 7px 0;
+    font-size: 19px;
+    font-weight: 500;
+    cursor: default;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.play-board .details span:first-child {
+    color: #fff;
+}
+
+.play-board .details .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background: #56baed;
+    border-radius: 5px;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.players.active span:first-child {
+    color: #56baed;
+}
+
+.players.active span:nth-child(2) {
+    color: #fff;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.play-board .play-area {
+    margin-top: 20px;
+}
+
+.play-board section {
+    display: flex;
+}
+
+.play-board section span {
+    display: block;
+    margin: 2px;
+    height: 80px;
+    width: 80px;
+    background: #fff;
+    border-radius: 5px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 80px;
+    color: #56baed;
+    cursor: pointer;
+}
+
+.score-board {
+    margin-top: 18px;
+    top: 10%;
+    right: 5%;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #56baed;
+    opacity: 0; /* Inicialmente oculta */
+    pointer-events: none; /* Inicialmente desativada */
+    transition: opacity 0.3s ease;
+    border: 1px solid #56baed; /* Borda seguindo o padrão */
+}
+
+.score-box h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #56baed; /* Cor de destaque */
+}
+
+.score-label{
+    color:  #56baed;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    padding: 7px 0;
+    border-bottom: 1px solid #56baed; /* Linha divisória para consistência */
+}
+
+.score-item:last-child {
+    border-bottom: none; /* Remover linha do último item */
+}
+
+.score-item span {
+    font-weight: 500;
+    color: #56baed; /* Texto mais escuro para contraste */
+}
+
+.score-item span:last-child {
+    font-weight: 600;
+    color: #56baed; /* Cor de destaque */
+}
+
+.score-board.show {
+    opacity: 1; /* Torna visível quando necessário */
+    pointer-events: auto; /* Ativa interações quando necessário */
+}
+
+/* Tela de Resultado */
+.result-box {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 330px;
+    width: 100%;
+    display: none;
+}
+
+.result-box .won-text {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.result-box .btn {
+    margin-top: 20px;
+}
+
+.result-box .btn{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.result-box .btn button {
+    background: #56baed;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.result-box .btn button:hover {
+    background: #3fa2d3;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.win-highlight {
+    background-color: #ffeb3b; /* Cor de destaque (amarelo claro) */
+    color: #000; /* Cor do texto */
+    border: 2px solid #ff9800; /* Borda laranja */
+    font-size: 50px; /* Aumentar o tamanho da fonte para melhor visualização */
+}
+
+/* Estilo para o texto do vencedor */
+.result-box .won-text {
+    font-size: 24px; /* Tamanho padrão para o texto */
+    color: #333; /* Cor padrão do texto */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo específico para o indicador do jogador */
+.result-box .won-text .winner-sign {
+    font-size: 60px; /* Aumenta o tamanho da fonte do indicador do jogador */
+    font-weight: bold; /* Garante que o indicador esteja em negrito */
+    color:  #56baed; /* Cor chamativa para o indicador do jogador */
+}
+
+.winner-indicator {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem; /* Ajuste o tamanho do ícone conforme necessário */
+    color: #56baed; /* Ajuste a cor do ícone conforme necessário */
+}
